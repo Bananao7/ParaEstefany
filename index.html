@@ -1,0 +1,106 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Para Estefany</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{--c:#f3e6cf;--g:#e8c98a;--r:#c0304f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+html,body{margin:0;height:100%}
+body{background:radial-gradient(ellipse at 50% 115%,#561021,#16060c 55%,#050205);color:var(--c);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;overflow:hidden}
+canvas{position:fixed;inset:0;pointer-events:none}#bg{z-index:0}#fx{z-index:60}
+.scr{position:fixed;inset:0;z-index:1;display:none;overflow-y:auto;padding:calc(56px + env(safe-area-inset-top,0px)) 20px 80px;flex-direction:column}
+.scr.on{display:flex;animation:in 1.4s ease}
+@keyframes in{from{opacity:0;filter:blur(10px);transform:scale(1.03)}}
+.in{margin:auto;width:min(100%,640px);text-align:center}
+.script{font-family:'Pinyon Script','Snell Roundhand',cursive;font-weight:400}
+h1{font-size:clamp(3.6rem,17vw,7rem);margin:.1em 0;color:var(--c);text-shadow:0 0 30px #c0304f88}
+h2{font-size:clamp(2rem,8vw,3rem);margin:0 0 .6em;color:var(--g)}
+.sm{letter-spacing:.4em;text-transform:uppercase;font-size:.8rem;color:var(--g);opacity:.8}
+.it{font-style:italic;opacity:.9;margin:1em 0 2em}
+.btn{background:linear-gradient(#7a1a2d,#4a0b19);color:var(--c);border:1px solid var(--g);padding:.8em 1.8em;border-radius:40px;font:inherit;cursor:pointer;transition:.3s;box-shadow:0 0 22px #c0304f55}
+.btn:hover{box-shadow:0 0 34px #c0304faa;transform:translateY(-2px)}
+.btn.g{background:none;box-shadow:none;opacity:.85}
+nav{position:fixed;z-index:20;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);display:flex;gap:14px}
+nav b{width:9px;height:9px;border-radius:50%;border:1px solid var(--g);cursor:pointer;transition:.4s}nav b.a{background:var(--g);box-shadow:0 0 10px var(--g)}
+.ic{position:fixed;z-index:20;top:calc(12px + env(safe-area-inset-top,0px));width:40px;height:40px;border-radius:50%;border:1px solid var(--g);background:#1a0710cc;color:var(--g);font-size:1.1rem;cursor:pointer}
+#mus{right:14px}#ed{right:62px}.hid{display:none!important}
+.blk{text-align:left;margin:1.4em 0;padding:0 0 0 18px;border-left:1px solid #e8c98a66}.blk small{display:block;color:var(--g);letter-spacing:.15em;text-transform:uppercase;font-size:.72rem;margin-bottom:.3em}
+.blk.e{opacity:.4;font-style:italic}
+.tl{position:relative;margin:2em 0;text-align:left;padding-left:26px;border-left:1px solid #e8c98a55}
+.tl>div{position:relative;margin-bottom:2em}.tl>div:before{content:'';position:absolute;left:-31px;top:.5em;width:9px;height:9px;border-radius:50%;background:var(--g);box-shadow:0 0 12px var(--g)}
+.tl i{color:var(--g);font-size:.9rem}.tl h3{margin:.1em 0;font-weight:600}.tl img,.paper img{max-width:100%;border-radius:4px;margin-top:.6em;border:1px solid #e8c98a55}
+#sky{width:min(100%,900px);margin:auto;display:block;max-height:60vh}
+.cs circle{fill:var(--c);cursor:pointer;transition:.6s;stroke:transparent;stroke-width:3}.cs polyline{fill:none;stroke:var(--g);stroke-width:.25;opacity:.12;transition:1s}
+.cs.lit circle{fill:var(--g);filter:drop-shadow(0 0 1.2px var(--g))}.cs.lit polyline{opacity:.9}
+.hs{fill:var(--c);opacity:.5;cursor:pointer;stroke:transparent;stroke-width:3}.hs:hover{opacity:1;fill:var(--g)}
+#cap{min-height:4.5em;font-style:italic;font-size:1.3rem;color:var(--c);text-align:center;transition:opacity 1s;margin:1em auto;max-width:560px}
+.lt{width:min(100%,520px);margin:10px auto;cursor:pointer}
+.env{background:linear-gradient(#6b1426,#4a0b19);border:1px solid #8a2a3c;padding:16px 22px;border-radius:4px;text-align:center;box-shadow:0 6px 24px #0008}
+.env span{font-size:1.5rem;display:block;color:var(--g);transition:transform 1s}.lt.o .env span{transform:rotate(360deg)}
+.paper{background:#f3e6cf;color:#3a1a1a;max-height:0;overflow:hidden;opacity:0;padding:0 24px;transition:max-height 1.6s ease,opacity 1.2s,padding 1s;font-style:italic;line-height:1.7;text-align:left;border-radius:0 0 3px 3px}
+.lt.o .paper{max-height:8000px;opacity:1;padding:22px 24px}
+.rv{opacity:0;transition:opacity 2.8s;line-height:1.75;margin:0 0 1.2em}.rv.sh,.sh{opacity:1!important}
+#q{opacity:0;transition:opacity 2.5s}#q h2{font-size:clamp(2.4rem,10vw,4.2rem);color:var(--c);letter-spacing:.06em;text-shadow:0 0 28px #e8c98a88;font-weight:600}
+#bt:not(.sh){pointer-events:none}#bt{opacity:0;transition:opacity 2s;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+#ans{margin-top:1.6em;font-size:1.5rem;font-style:italic;min-height:3em;color:var(--g)}
+#adm{position:fixed;inset:0;z-index:70;background:#0a0306f2;overflow-y:auto;padding:20px}
+.pn{width:min(100%,620px);margin:auto;font-size:1rem}.pn label{display:block;margin:1em 0 .2em;color:var(--g)}
+.pn textarea,.pn input[type=text]{width:100%;box-sizing:border-box;background:#1c0911;color:var(--c);border:1px solid #8a2a3c;border-radius:4px;padding:8px;font:inherit}.pn textarea{min-height:70px}
+.pn .row{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #8a2a3c55;padding:6px 0}.pn .btn{padding:.4em 1em;margin:.5em .3em 0 0;font-size:.95rem}
+</style></head><body><div id="root"></div>
+<script src="data.js"></script>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])),P=t=>esc(t).replace(/\n/g,'<br>');
+const ADM=location.hash=='#admin',KEY='estefany-borrador';let S=JSON.parse(JSON.stringify(window.DATA||{name:'',phrase:'',story:{},mem:[],letters:[],stars:[],moment:''})),adm=ADM,cur=0,mt=[];
+if(ADM)try{const d=localStorage.getItem(KEY);if(d)S=JSON.parse(d)}catch(e){}
+const draft=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+function shrink(f){return new Promise((ok,no)=>{const r=new FileReader();r.onerror=no;r.onload=()=>{const im=new Image();im.onerror=no;im.onload=()=>{const k=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);ok(c.toDataURL('image/jpeg',.8))};im.src=r.result};r.readAsDataURL(f)})}
+$('#root').innerHTML='<canvas id="bg"></canvas><canvas id="fx"></canvas><main id="m"></main><nav id="nav"></nav><button id="mus" class="ic" title="Música">♪</button><button id="ed" class="ic hid" title="Editar">✎</button><div id="adm" class="hid"></div>';
+const LB=[['meet','El día en que nos conocimos'],['moments','Los momentos que hemos compartido'],['disc','Lo que he descubierto de ti'],['feel','Lo que siento cuando estoy a tu lado']];
+const CS=[[[10,40],[20,27],[32,31],[42,17],[55,23]],[[60,46],[70,35],[80,41],[89,26],[77,54]],[[28,52],[38,44],[48,55],[37,60]]];
+function render(){
+ const story=LB.map(([k,l])=>S.story[k]||adm?`<div class="blk${S.story[k]?'':' e'}"><small>${l}</small>${S.story[k]?P(S.story[k]):'Pendiente de escribir…'}</div>`:'').join('');
+ const pd=d=>{const m=/^(\d+)\/(\d+)\/(\d+)$/.exec(d||'');return m?new Date(+m[3],m[2]-1,+m[1]).getTime():8.64e15};
+ const tl=[...S.mem].sort((a,b)=>pd(a.d)-pd(b.d)).map(m=>`<div><i>${esc(m.d)}</i><h3>${esc(m.t)}</h3>${P(m.x)}${m.i?`<br><img src="${esc(m.i)}" alt="">`:''}</div>`).join('');
+ const sky=CS.map((c,j)=>`<g class="cs" data-c="${j}"><polyline points="${c.map(p=>p.join(',')).join(' ')}"/>${c.map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="1.1"/>`).join('')}</g>`).join('')+Array.from({length:12},(_,i)=>`<circle class="hs" data-h="${i}" cx="${(i*37+11)%96+2}" cy="${(i*23+7)%58+2}" r=".7"/>`).join('');
+ const lt=S.letters.map((l,i)=>`<div class="lt" data-l="${i}"><div class="env"><span>✉</span>${esc(l.t)}<br><small>${esc(l.d)}</small></div><div class="paper">${P(l.x)}${l.i?`<br><img src="${esc(l.i)}" alt="">`:''}</div></div>`).join('')||'<p class="it">Aquí irán las cartas que aún estoy escribiendo…</p>';
+ $('#m').innerHTML=`<section class="scr" id="s0"><div class="in"><div class="sm">para ti</div><h1 class="script">${esc(S.name)}</h1><p class="it">${esc(S.phrase)}</p><button class="btn" data-go="1">Tengo algo para ti</button></div></section>
+<section class="scr" id="s1"><div class="in"><h2 class="script">Nuestra pequeña historia</h2>${story}<div class="tl">${tl}</div></div></section>
+<section class="scr" id="s2"><div class="in" style="width:min(100%,900px)"><h2 class="script">Un pequeño universo para ti</h2><p class="it" style="margin:0 0 1em">Toca las estrellas… algunas guardan algo para ti.</p><svg id="sky" viewBox="0 0 100 64">${sky}</svg><div id="cap"></div></div></section>
+<section class="scr" id="s3"><div class="in"><h2 class="script">Lo que nunca me canso de decirte</h2>${lt}</div></section>
+<section class="scr" id="s4"><div class="in"><div id="mo"></div><div id="q"><h2>¿QUIERES SER MI NOVIA?</h2><div id="bt"><button class="btn" data-yes>Sí, quiero ❤️</button><button class="btn g" data-think>Necesito pensarlo</button></div></div><div id="ans"></div></div></section>`;
+ $('#nav').innerHTML=[0,1,2,3,4].map(i=>`<b data-go="${i}"></b>`).join('');go(cur);
+}
+function go(n){cur=n;document.querySelectorAll('.scr').forEach((e,i)=>e.classList.toggle('on',i==n));document.querySelectorAll('#nav b').forEach((e,i)=>e.classList.toggle('a',i==n));mt.forEach(clearTimeout);if(n==4)moment();$('#s'+n).scrollTop=0}
+function moment(){const b=$('#mo');b.innerHTML='';$('#ans').textContent='';$('#q').classList.remove('sh');$('#bt').classList.remove('sh');let d=700;S.moment.split(/\n\n+/).forEach(p=>{const e=document.createElement('p');e.className='rv';e.textContent=p;b.append(e);mt.push(setTimeout(()=>e.classList.add('sh'),d));d+=4800});mt.push(setTimeout(()=>$('#q').classList.add('sh'),d+800));mt.push(setTimeout(()=>$('#bt').classList.add('sh'),d+3200))}
+function say(t){const c=$('#cap');c.style.opacity=0;setTimeout(()=>{c.textContent=t;c.style.opacity=1},300)}
+document.addEventListener('click',async e=>{const t=e.target,g=k=>t.closest('['+k+']');let o;
+ if(o=g('data-go'))go(+o.dataset.go);
+ else if(o=g('data-c')){const c=o.classList;c.toggle('lit');if(c.contains('lit'))say(S.stars[+o.dataset.c%S.stars.length]||'')}
+ else if(o=g('data-h'))say(S.stars[(+o.dataset.h+3)%S.stars.length]||'');
+ else if(o=g('data-l'))o.classList.toggle('o');
+ else if(g('data-yes')){$('#ans').textContent='Entonces, que comience nuestra historia. ❤️';$('#bt').style.opacity=.4;for(let i=0;i<16;i++)setTimeout(()=>boom(innerWidth*(.15+Math.random()*.7),innerHeight*(.15+Math.random()*.5)),i*450)}
+ else if(g('data-think'))$('#ans').textContent='No tienes que apresurarte. Lo más importante para mí es que tu respuesta nazca de tu corazón. ❤️';
+ else if(t.id=='ed'){A();$('#adm').classList.remove('hid')}
+ else if(g('data-x')){$('#adm').classList.add('hid');render()}
+ else if(o=g('data-del')){const[k,i]=o.dataset.del.split(':');S[k].splice(+i,1);draft();A()}
+ else if(o=g('data-add')){const k=o.dataset.add,v=n=>$('#'+n).value.trim(),f=$('#'+k+'f').files[0];let i='';if(f)try{i=await shrink(f)}catch(er){$('#st').textContent='No se pudo subir la foto';return}
+  if(!v(k+'t')&&!v(k+'x'))return;S[k].push({d:v(k+'d'),t:v(k+'t'),x:v(k+'x'),i});draft();A()}
+ else if(g('data-save')){draft();const u=URL.createObjectURL(new Blob(['window.DATA='+JSON.stringify(S,null,1)+';'],{type:'text/javascript'})),l=document.createElement('a');l.href=u;l.download='data.js';l.click();$('#st').textContent='Descargado. Reemplaza data.js en tu repositorio.'}
+});
+document.addEventListener('input',e=>{const k=e.target.dataset.k;if(!k)return;const v=e.target.value;if(k=='stars')S.stars=v.split('\n').map(s=>s.trim()).filter(Boolean);else if(k.startsWith('story.'))S.story[k.slice(6)]=v;else S[k]=v;draft()});
+function A(){const ta=(k,v,l)=>`<label>${l}</label><textarea data-k="${k}">${esc(v)}</textarea>`,ls=k=>S[k].map((m,i)=>`<div class="row"><span>${esc(m.d)} ${esc(m.t)}</span><button class="btn g" data-del="${k}:${i}">Quitar</button></div>`).join(''),fm=k=>`<input type="text" id="${k}d" placeholder="Fecha"><input type="text" id="${k}t" placeholder="Título" style="margin-top:6px"><textarea id="${k}x" placeholder="Texto" style="margin-top:6px"></textarea><input type="file" id="${k}f" accept="image/*"><br><button class="btn" data-add="${k}">Agregar</button>`;
+ $('#adm').innerHTML=`<div class="pn"><h2 class="script">Panel privado</h2><p>Tus cambios se guardan como borrador solo en este navegador. Al terminar, descarga data.js y súbelo a GitHub.</p>${ta('phrase',S.phrase,'Frase de bienvenida')}${LB.map(([k,l])=>ta('story.'+k,S.story[k],l)).join('')}<label>Recuerdos de la línea de tiempo</label>${ls('mem')}${fm('mem')}<label>Cartas y poemas</label>${ls('letters')}${fm('letters')}${ta('stars',S.stars.join('\n'),'Mensajes entre las estrellas (uno por línea)')}${ta('moment',S.moment,'Texto de «El momento» (separa párrafos con una línea en blanco)')}<br><button class="btn" data-save>Descargar data.js</button><button class="btn g" data-x>Cerrar</button><p id="st"></p></div>`}
+/* cielo, corazones y fuegos artificiales */
+const bg=$('#bg'),x=bg.getContext('2d'),fx=$('#fx'),f=fx.getContext('2d');let st=[],hs=[],ps=[];
+function rs(){fx.width=bg.width=innerWidth;fx.height=bg.height=innerHeight;st=Array.from({length:Math.min(240,innerWidth/4)},()=>({x:Math.random()*bg.width,y:Math.random()*bg.height,r:Math.random()*1.4+.2,p:Math.random()*6,s:Math.random()*.02+.005}))}
+function boom(X,Y){const c=['#e8c98a','#c0304f','#f3e6cf','#ff6b8a'][Math.random()*4|0];for(let i=0;i<80;i++){const a=Math.random()*6.28,v=Math.random()*5+1;ps.push({x:X,y:Y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,c,h:Math.random()<.3})}}
+function dr(t){x.clearRect(0,0,bg.width,bg.height);x.fillStyle='#f3e6cf';for(const s of st){x.globalAlpha=.25+.75*Math.abs(Math.sin(t*s.s*.1+s.p));x.beginPath();x.arc(s.x,s.y,s.r,0,7);x.fill()}
+ if(Math.random()<.025)hs.push({x:Math.random()*bg.width,y:bg.height+10,v:.3+Math.random()*.6,s:8+Math.random()*12});x.fillStyle='#c0304f';hs=hs.filter(h=>h.y>-20);for(const h of hs){h.y-=h.v;h.x+=Math.sin(h.y/30)*.3;x.globalAlpha=.45;x.font=h.s+'px serif';x.fillText('♥',h.x,h.y)}
+ f.clearRect(0,0,fx.width,fx.height);ps=ps.filter(p=>p.l>0);for(const p of ps){p.x+=p.vx;p.y+=p.vy;p.vy+=.06;p.vx*=.985;p.l-=.011;f.globalAlpha=p.l;f.fillStyle=p.c;if(p.h){f.font='16px serif';f.fillText('♥',p.x,p.y)}else f.fillRect(p.x,p.y,2.5,2.5)}
+ requestAnimationFrame(dr)}
+addEventListener('resize',rs);rs();requestAnimationFrame(dr);
+/* música ambiental */
+let ac,iv,ci=0;const CH=[[220,261.6,329.6],[174.6,220,261.6],[130.8,196,261.6],[196,246.9,293.7]];
+function chord(){const t=ac.currentTime;CH[ci++%4].forEach(fr=>{const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=fr;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.045,t+2);g.gain.linearRampToValueAtTime(0,t+7);o.connect(g).connect(ac.destination);o.start(t);o.stop(t+7.2)})}
+$('#mus').onclick=()=>{const b=$('#mus');if(iv){clearInterval(iv);iv=0;b.style.opacity=.5;return}ac=ac||new AudioContext();ac.resume();chord();iv=setInterval(chord,6000);b.style.opacity=1};$('#mus').style.opacity=.5;
+render();
+if(ADM)$('#ed').classList.remove('hid');
+</script></body></html>
